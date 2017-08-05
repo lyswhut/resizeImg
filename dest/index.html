@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>resizeImg</title>
+  <style>
+    * { box-sizing: border-box; font-family: '微软雅黑'; }
+    .file_1 { position: relative;  }
+    .btns { position: relative; display: flex; padding: 10px 0; }
+    .btn { 
+      position: relative;
+      display: inline-block;
+      background: #D0EEFF;
+      font-size: 14px;
+      border: 1px solid #99D3F5;
+      border-radius: 4px;
+      padding: 0 12px;
+      overflow: hidden;
+      color: #1E88C7;
+      text-decoration: none;
+      text-indent: 0;
+      line-height: 30px;
+      cursor: pointer;
+      transition: all .3s ease;
+      margin: 0 5px;
+      font-family: '微软雅黑';
+    }
+    .btn:hover{background: #DFF3FF; border-color:#BBE2F8; color: #38A2E1; }
+    .file { position: absolute; left: -1000px; top:0; opacity: 0; }
+    .container { display: flex; flex-flow: row nowrap; text-align: center; }
+    .original,.result { flex: 1 1 600px; }
+    .original { background-color: #FFF2F0;}
+    .result { background-color: #ECFBF1;}
+    .red{ color: red; }
+    .green{ color: green; }
+    img{ max-width: 600px; max-width: 600px; height: auto; width: auto; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <div id="example_1">
+    <div class="btns">
+      <label class="btn" for="file_1">选择图片</label>
+    </div>
+    <div class="container">
+      <div class="original"></div>
+      <div class="result"></div>
+    </div>
+  </div>
+  <form>
+    <input class="file" type="file" id="file_1" accept="image/png,image/gif,image/jpeg" name="file">
+  </form>
+</body>
+  <script src="./js/resizeImg.min.js"></script>
+  <script>
+    var input_1 = document.querySelector('#file_1');
+    var btns_1 = document.querySelector('#example_1 .btns');
+    var container_1 = document.querySelector('#example_1 .container');
+    var original_1 = container_1.querySelector('.original');
+    var result_1 = container_1.querySelector('.result');
+    input_1.addEventListener('change',function(){
+      var reader = new FileReader();
+      reader.readAsDataURL(this.files[0]);
+      if (!/(image\/png|image\/gif|image\/jpeg)/.test(this.files[0].type)) return alert('您选择的不是图片文件，请选择图片文件！');
+      reader.onload=function(e){
+        var originalImg = new Image();
+        originalImg.src = this.result;
+        originalImgL = this.result.length;
+        originalImgS = input_1.files[0].size;
+        diff = originalImgS/originalImgL;
+        originalImg.onload = function () {
+          var info = '<p>原图宽：<span class="red">'+originalImg.width+'</span> px&nbsp;&nbsp;&nbsp;高：<span class="red">'+originalImg.height+'</span> px&nbsp;&nbsp;&nbsp;大小为：<span class="red">'+ ((originalImgS / 1024).toFixed(0)) + '</span> kb</p>';
+          original_1.insertAdjacentHTML('beforeend', info);
+          original_1.appendChild(originalImg);
+          btns_1.insertAdjacentHTML('beforeend', '<button class="btn resizeBtn" onclick="resizeImg(\'file_1\', result_1, diff, this)">压缩图片</button>');
+        }
+      }
+    })
+    function resizeImg(id,result_1,diff, _this) {
+      _this.parentNode.removeChild(_this);
+      var files = document.getElementById(id).files;
+      for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        _resizeImg(file, {
+          width: 600,
+          quality: 1,
+          success: function (base64) {
+            var resultS = base64.length * diff;
+            var resultImg = new Image();
+            resultImg.src = base64;
+            resultImg.onload = function () {
+              var info = '<p>压缩后宽：<span class="green">'+resultImg.width+'</span> px&nbsp;&nbsp;&nbsp;高：<span class="green">'+resultImg.height+'</span> px&nbsp;&nbsp;&nbsp;大小为：<span class="green">'+ ((resultS / 1024).toFixed(0)) + '</span> kb</p>';
+              result_1.insertAdjacentHTML('beforeend', info);
+              result_1.appendChild(resultImg);
+            }
+          }
+        })
+      }
+    }
+  </script>
+</html>

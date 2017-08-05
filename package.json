@@ -15,5 +15,17 @@
   "bugs": {
     "url": "https://github.com/stsky/resizeImg/issues"
   },
-  "homepage": "https://github.com/stsky/resizeImg#readme"
+  "homepage": "https://github.com/stsky/resizeImg#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-remove-empty-lines": "^0.1.0",
+    "gulp-remove-html": "^1.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  }
 }
