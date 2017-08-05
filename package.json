@@ -1,0 +1,19 @@
+{
+  "name": "resize-img",
+  "version": "1.0.0",
+  "description": "upload resize image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stsky/resizeImg.git"
+  },
+  "author": "stsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stsky/resizeImg/issues"
+  },
+  "homepage": "https://github.com/stsky/resizeImg#readme"
+}
