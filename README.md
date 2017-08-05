@@ -1,5 +1,8 @@
 # upload resize image
 
+[demo](http://stsky.cn/demo/dest/)
+
+```
 /**
  * 图片压缩
  * @param {String|Array|Object} imgs 图片路径字符串/图片路径数组/file对象
@@ -19,3 +22,4 @@
       }
     })
  */
+```
