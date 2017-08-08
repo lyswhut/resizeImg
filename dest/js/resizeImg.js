@@ -103,7 +103,7 @@ function _resizeImg(imgs, options) {
         //   base64: dataURL,
         //   clearBase64: dataURL.substring(dataURL.indexOf(',') + 1)
         // };
-        if (options.type) return getBlobBydataURI(dataURL, type);
+        if (options.type) return getBlobBydataURI(dataURL, options.type);
         return dataURL;
 
         function getBlobBydataURI(dataURL, type) {
