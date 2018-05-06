@@ -4,7 +4,7 @@
 
 用于前端上传图片前的图片压缩处理，兼容PC、android、ios平台。
 
-[demo](http://stsky.cn/demo/dest/)
+[demo](http://stsky.cn/demo/resizeimg/)
 
 
 ## use
