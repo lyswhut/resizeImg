@@ -4,6 +4,8 @@
 
 用于前端上传图片前的图片压缩处理，兼容PC、android、ios平台。
 
+本项目整合了`jpeg_encoder_basic.js`及`megapix-image.js`
+
 [demo](http://stsky.cn/demo/resizeimg/)
 
 

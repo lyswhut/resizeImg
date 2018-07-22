@@ -10,21 +10,21 @@ const gulp = require('gulp'),
 
 
 gulp.task('clean:html', function(cb) {
-  del(['dest/**/*.html'], cb);
+  del(['dist/**/*.html'], cb);
 });
 gulp.task('clean:js', function(cb) {
-  del(['dest/**/*.js'], cb);
+  del(['dist/**/*.js'], cb);
 });
 
 //压缩js
 gulp.task('minifyjs', function(){
-  return gulp.src('src/js/resizeImg.js')
+  return gulp.src(['./src/js/resizeImg.js', './src/js/jpeg_encoder_basic.js', './src/js/megapix-image.js'])
     .pipe(babel({presets:['es2015']}))//编译se6
     .pipe(concat('resizeImg.js'))//合并所有js到resizeImg.js
-    .pipe(gulp.dest('dest/js'))//输出resize.js到文件夹
+    .pipe(gulp.dest('dist/js'))//输出resize.js到文件夹
     .pipe(rename({suffix: '.min'}))//rename压缩后的文件名
     .pipe(uglify())//压缩
-    .pipe(gulp.dest('dest/js'));//输出
+    .pipe(gulp.dest('dist/js'));//输出
 });
 
 //压缩html
@@ -37,13 +37,13 @@ gulp.task('html',function(){
     removeScriptTypeAttributes: true,//删除<script>的type="text/javascript"
     removeStyleLinkTypeAttributes: true,//删除<style>和<link>的type="text/css"
     // minifyJS: true,//压缩页面JS
-    // minifyCSS: true//压缩页面CSS
+    minifyCSS: true//压缩页面CSS
   };
   return gulp.src('src/*.html')
     // .pipe(gulpRemoveHtml())//清除特定标签
     // .pipe(removeEmptyLines({removeComments: true}))//清除空白行
     .pipe(htmlmin(options))
-    .pipe(gulp.dest('dest'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', function(){
