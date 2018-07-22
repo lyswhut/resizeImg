@@ -257,7 +257,7 @@
   } else if (typeof exports === 'object') {
     module.exports = MegaPixImage; // for CommonJS
   } else {
-    this.MegaPixImage = MegaPixImage;
+    window.MegaPixImage = MegaPixImage;
   }
 
 })();

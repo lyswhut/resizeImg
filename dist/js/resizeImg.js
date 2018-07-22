@@ -1096,6 +1096,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
     module.exports = MegaPixImage; // for CommonJS
   } else {
-    this.MegaPixImage = MegaPixImage;
+    window.MegaPixImage = MegaPixImage;
   }
 })();
