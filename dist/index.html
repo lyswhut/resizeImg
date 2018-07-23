@@ -51,7 +51,7 @@
       var files = document.getElementById(id).files;
       for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        _resizeImg(file, {
+        __resizeImg(file, {
           width: 600,
           quality: 1,
           success: function (base64) {

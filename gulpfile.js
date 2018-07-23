@@ -23,7 +23,11 @@ gulp.task('minifyjs', function(){
     .pipe(concat('resizeImg.js'))//合并所有js到resizeImg.js
     .pipe(gulp.dest('dist/js'))//输出resize.js到文件夹
     .pipe(rename({suffix: '.min'}))//rename压缩后的文件名
-    .pipe(uglify())//压缩
+    .pipe(uglify({
+      output: {
+        comments: 'some'
+      }
+    }))//压缩
     .pipe(gulp.dest('dist/js'));//输出
 });
 
