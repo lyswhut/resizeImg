@@ -56,7 +56,7 @@
 通过原图获取压缩后图片的`base64`，可直接当做字符串传给后台
 
 ```js
-_resizeImg('test.jpg', {
+__resizeImg('test.jpg', {
   width: 200,
   quality: 0.9,
   success: function($base64){
@@ -70,7 +70,7 @@ _resizeImg('test.jpg', {
 通过原图获取压缩后图片的blob，可以把`blob`放进`FormData`里发给服务器
 
 ```js
-_resizeImg('test.jpg', {
+__resizeImg('test.jpg', {
   width: 200,
   quality: 0.9,
   type: 'image/jpeg',
