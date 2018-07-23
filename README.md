@@ -32,8 +32,8 @@
       quality: 0.9,
       type: 'image/jpeg',
       success: function($Blob) {
-        formData.append("imgFile", $Blob, "file_" + new Date().getTime() + ".jpg");
-        //...
+        // formData.append("imgFile", $Blob, "file_" + new Date().getTime() + ".jpg");
+        // ...
       }
     })
  * @example 接收file对象压缩
@@ -43,8 +43,8 @@
       quality: 0.9,
       type: 'image/jpeg',
       success: function($Blob){
-        formData.append("imgFile", $Blob, "file_" + new Date().getTime() + ".jpg");
-        //...
+        // formData.append("imgFile", $Blob, "file_" + new Date().getTime() + ".jpg");
+        // ...
       }
     })
  */
@@ -61,7 +61,7 @@ _resizeImg('test.jpg', {
   quality: 0.9,
   success: function($base64){
     // resize image $base64
-    //...
+    // ...
   }
 })
 ```
@@ -76,7 +76,7 @@ _resizeImg('test.jpg', {
   type: 'image/jpeg',
   success: function($Blob){
     // formData.append("imgFile", $Blob, "file_" + new Date().getTime() + ".jpg"); 
-    //...
+    // ...
   }
 })
 ```

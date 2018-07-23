@@ -21,8 +21,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       quality: 0.9,
       type: 'image/jpeg',
       success: function($Blob) {
-        formData.append("imgFile", $Blob, "file_" + new Date().getTime() + ".jpg");
-        //...
+        // formData.append("imgFile", $Blob, "file_" + new Date().getTime() + ".jpg");
+        // ...
       }
     })
  * @example 接收file对象压缩
@@ -32,8 +32,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       quality: 0.9,
       type: 'image/jpeg',
       success: function($Blob){
-        formData.append("imgFile", $Blob, "file_" + new Date().getTime() + ".jpg");
-        //...
+        // formData.append("imgFile", $Blob, "file_" + new Date().getTime() + ".jpg");
+        // ...
       }
     })
  */
