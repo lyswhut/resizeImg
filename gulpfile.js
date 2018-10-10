@@ -9,11 +9,11 @@ const gulp = require('gulp'),
     del = require('del');//删除文件
 
 
-gulp.task('clean:html', function(cb) {
-  del(['dist/**/*.html'], cb);
+gulp.task('clean:html', function() {
+  return del(['dist/**/*.html']);
 });
-gulp.task('clean:js', function(cb) {
-  del(['dist/**/*.js'], cb);
+gulp.task('clean:js', function() {
+  return del(['dist/**/*.js']);
 });
 
 //压缩js
@@ -51,7 +51,7 @@ gulp.task('html',function(){
 });
 
 gulp.task('default', function(){
-  gulp.watch('src/js/resizeImg.js', ['clean:js', 'minifyjs']);
-  gulp.watch('src/**/*.html', ['clean:html','html']);
+  gulp.watch('src/js/resizeImg.js', gulp.series(['clean:js', 'minifyjs']));
+  gulp.watch('src/**/*.html', gulp.series(['clean:html','html']));
 });
 
