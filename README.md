@@ -6,7 +6,7 @@
 
 本项目整合了`jpeg_encoder_basic.js`及`megapix-image.js`
 
-[demo](http://stsky.cn/demo/resizeimg/)
+[demo](https://lyswhut.github.io/resizeImg/dist/index.html)
 
 **注意：这只是简单的图片压缩，即把原图缩小比例后再通过`canvas`画出来，本插件对于需要把高分辨率（大图）压成低分辨率（小图）时才会起效果，不然可能会起到反效果（即压了反而变大），所以需要先判断图片大小再选择是否进行压缩处理。**
 
