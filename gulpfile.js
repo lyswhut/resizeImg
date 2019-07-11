@@ -9,11 +9,13 @@ const gulp = require('gulp'),
     del = require('del');//删除文件
 
 
-gulp.task('clean:html', function() {
-  return del(['dist/**/*.html']);
+gulp.task('clean:html', function(cb) {
+  del(['dist/**/*.html']);
+  cb()
 });
-gulp.task('clean:js', function() {
-  return del(['dist/**/*.js']);
+gulp.task('clean:js', function(cb) {
+  del(['dist/**/*.js']);
+  cb()
 });
 
 //压缩js
@@ -50,8 +52,12 @@ gulp.task('html',function(){
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', function(){
+gulp.task('watch', function(){
   gulp.watch('src/js/resizeImg.js', gulp.series(['clean:js', 'minifyjs']));
   gulp.watch('src/**/*.html', gulp.series(['clean:html','html']));
 });
 
+
+gulp.task('build', gulp.series(['clean:js', 'clean:html'], ['minifyjs', 'html']))
+
+gulp.task('default', gulp.series('watch'))
