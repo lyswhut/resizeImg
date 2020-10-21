@@ -21,7 +21,7 @@
     <input class="file" type="file" id="file_1" accept="image/png,image/gif,image/jpeg" name="file">
   </form>
 </body>
-  <script src="./js/resizeImg.min.js"></script>
+  <script src="./resizeImg.min.js"></script>
   <script>
     var input_1 = document.querySelector('#file_1');
     var btns_1 = document.querySelector('#example_1 .btns');
@@ -53,6 +53,7 @@
         var file = files[i];
         __resizeImg(file, {
           width: 600,
+          height: 600,
           quality: 1,
           success: function (base64) {
             var resultS = base64.length * diff;

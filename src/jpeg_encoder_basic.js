@@ -38,7 +38,7 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-function JPEGEncoder(quality) {
+module.exports = function JPEGEncoder(quality) {
   var self = this;
     var fround = Math.round;
     var ffloor = Math.floor;
@@ -746,7 +746,7 @@ function JPEGEncoder(quality) {
 
     init();
 
-};
+}
 
 /* Example usage. Quality is an int in the range [0, 100]
 function example(quality){
