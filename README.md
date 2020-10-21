@@ -61,6 +61,7 @@
 ```js
 __resizeImg('test.jpg', {
   width: 200,
+  height: 200,
   quality: 0.9,
   success: function($base64){
     // resize image $base64
@@ -75,6 +76,7 @@ __resizeImg('test.jpg', {
 ```js
 __resizeImg('test.jpg', {
   width: 200,
+  height: 200,
   quality: 0.9,
   type: 'image/jpeg',
   success: function($Blob){
