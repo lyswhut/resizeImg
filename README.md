@@ -12,9 +12,26 @@
 
 ## use
 
+```js
+import resizeImg from 'resizeImg.min.js'
+resizeImg(file, {
+  // ...
+})
+```
+
+or
+
 ```html
 <script src="./js/resizeImg.min.js"></script>
+
+<script>
+__resizeImg(file, {
+  // ...
+})
+</script>
+
 ```
+
 ## options
 
 ```js
@@ -29,8 +46,8 @@
  * @param {Function} [options.success(result)] 完成的回调函数，若type有值，则返回blob，否则返回base64
  * @example 接收图片路径压缩
     __resizeImg('test.jpg', {
-      width: 200,
-      height: 200,
+      width: 200,  // 图片需要压缩的最大宽度，高度会跟随调整
+      height: 200,  // 图片需要压缩的最大高度，高度会跟随调整  宽高都要传才会进行大小压缩，若原图的宽高大于所传的宽高则按照最大的
       quality: 0.9,
       type: 'image/jpeg',
       success: function($Blob) {

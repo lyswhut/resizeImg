@@ -6,9 +6,10 @@ const getBase64Image = function(img, options) {//width、height调用时传入�
   var w, h
   if (options.width && options.height) {
     var scale = img.width / img.height
-    if (img.width > options.width) {
+    var resizedH = Math.floor(options.width / scale)
+    if (resizedH < options.height) {
       w = options.width
-      h = Math.floor(options.width / scale)
+      h = resizedH
     } else {
       w = Math.floor(options.height * scale)
       h = options.height
